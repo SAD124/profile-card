@@ -1,9 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  reactCompiler: true, // keep your other config
   images: {
-    domains: ['i.pravatar.cc', 'encrypted-tbn3.gstatic.com'], // add your image hosts here
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+        port: '',          // leave empty if default
+        pathname: '/**',   // allows all paths
+      },
+      {
+        protocol: 'https',
+        hostname: 'encrypted-tbn3.gstatic.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
